@@ -44,6 +44,7 @@
 		2B16EC4D29CC3E01002025A6 /* ChecklishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B16EC5129CC3E01002025A6 /* ChecklishUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklishUITests.swift; sourceTree = "<group>"; };
 		2B16EC5329CC3E01002025A6 /* ChecklishUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklishUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2B16EC6029CC44E1002025A6 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 				2B16EC3829CC3DFF002025A6 /* ContentView.swift */,
 				2B16EC3A29CC3E00002025A6 /* Assets.xcassets */,
 				2B16EC3C29CC3E00002025A6 /* Preview Content */,
+				2B16EC6029CC44E1002025A6 /* Readme.md */,
 			);
 			path = Checklish;
 			sourceTree = "<group>";
