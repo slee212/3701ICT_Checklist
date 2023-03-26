@@ -13,14 +13,13 @@ var tasks = [["Monday: ", "Finish assignment", "checkmark"],
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("To Do List:")
+        NavigationView() {
             List {
                 ForEach(tasks, id:\.self) {
                     task in
                     ListRowView(item: task)
                 }
-            }
+            }.navigationTitle("To Do List")
         }
         .padding()
     }
@@ -43,9 +42,9 @@ struct ListRowView: View {
             Image(systemName: item[2])
         }.onTapGesture {
             if(item[2] == "checkmark") {
-                print("\(item[1]) is ticked")
+                print("\(item[1]) is completed")
             } else {
-                print("\(item[1]) is not ticked")
+                print("\(item[1]) is not completed")
             }
         }
     }
