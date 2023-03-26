@@ -95,11 +95,11 @@
 		2B16EC3529CC3DFF002025A6 /* Checklish */ = {
 			isa = PBXGroup;
 			children = (
+				2B16EC6029CC44E1002025A6 /* Readme.md */,
 				2B16EC3629CC3DFF002025A6 /* ChecklishApp.swift */,
 				2B16EC3829CC3DFF002025A6 /* ContentView.swift */,
 				2B16EC3A29CC3E00002025A6 /* Assets.xcassets */,
 				2B16EC3C29CC3E00002025A6 /* Preview Content */,
-				2B16EC6029CC44E1002025A6 /* Readme.md */,
 			);
 			path = Checklish;
 			sourceTree = "<group>";
