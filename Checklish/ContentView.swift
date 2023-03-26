@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-var tasks = [["Monday: ", "Finish assignment", "checkmark"],
-             ["Tuesday: ", "Go shopping", "checkmark"],
-             ["Wednesday: ", "Do laundry", "xmark"]]
+var tasks = [["Mon", "Finish assignment", "checkmark"],
+             ["Tue", "Go shopping", "checkmark"],
+             ["Wed", "Wash, fold and put away laundry", "xmark"]]
 
 struct ContentView: View {
     var body: some View {
@@ -36,7 +36,9 @@ struct ListRowView: View {
     var body: some View {
         HStack{
             Text(item[0])
-                .frame(width:100)
+                .frame(width:50)
+            Divider()
+                .overlay(.black)
             Text(item[1])
             Spacer()
             Image(systemName: item[2])
