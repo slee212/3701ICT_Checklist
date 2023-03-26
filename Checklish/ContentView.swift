@@ -9,7 +9,8 @@ import SwiftUI
 
 var tasks = [["Mon", "Finish assignment", "checkmark"],
              ["Tue", "Go shopping", "checkmark"],
-             ["Wed", "Wash, fold and put away laundry", "xmark"]]
+             ["Wed", "Wash, fold and put away laundry", "xmark"],
+             ["Wed", "Study for upcoming exam", "xmark"]]
 
 struct ContentView: View {
     var body: some View {
