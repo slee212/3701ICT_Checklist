@@ -13,24 +13,36 @@ var tasks = [["Mon", "Finish assignment", "checkmark"],
              ["Wed", "Study for upcoming exam", "xmark"]]
 
 struct ContentView: View {
+    @Binding var model: DataModel
     var body: some View {
         NavigationView() {
             List {
-                ForEach(tasks, id:\.self) {
-                    task in
-                    ListRowView(item: task)
-                }
+                ForEach(model.tasks, id:\.self) {
+                    p in
+                    HStack{
+                        Text(p.day)
+                        Divider()
+                        Text(p.task)
+                    }
+                }.onDelete { idx in }
+//                ForEach(tasks, id:\.self) {
+//                    task in
+//                    ListRowView(item: task)
+//                }
             }.navigationTitle("To Do List")
+                .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+                    model.tasks.append(Item(day:"Fri", task: "New Task"))
+                })
         }
         .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
 
 struct ListRowView: View {
     var item:[String]
