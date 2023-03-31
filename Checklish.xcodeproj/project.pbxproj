@@ -16,7 +16,6 @@
 		2B16EC5429CC3E01002025A6 /* ChecklishUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B16EC5329CC3E01002025A6 /* ChecklishUITestsLaunchTests.swift */; };
 		2BC4888329D6A27F00439D7F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4888229D6A27F00439D7F /* DataModel.swift */; };
 		2BC4888729D6C1E200439D7F /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4888629D6C1E200439D7F /* EditView.swift */; };
-		2BC4888929D6C60E00439D7F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4888829D6C60E00439D7F /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		2B16EC6029CC44E1002025A6 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		2BC4888229D6A27F00439D7F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		2BC4888629D6C1E200439D7F /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
-		2BC4888829D6C60E00439D7F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 				2B16EC3629CC3DFF002025A6 /* ChecklishApp.swift */,
 				2B16EC3829CC3DFF002025A6 /* ContentView.swift */,
 				2BC4888629D6C1E200439D7F /* EditView.swift */,
-				2BC4888829D6C60E00439D7F /* DetailView.swift */,
 				2BC4888229D6A27F00439D7F /* DataModel.swift */,
 				2B16EC3A29CC3E00002025A6 /* Assets.xcassets */,
 				2B16EC3C29CC3E00002025A6 /* Preview Content */,
@@ -271,7 +268,6 @@
 				2B16EC3929CC3DFF002025A6 /* ContentView.swift in Sources */,
 				2B16EC3729CC3DFF002025A6 /* ChecklishApp.swift in Sources */,
 				2BC4888729D6C1E200439D7F /* EditView.swift in Sources */,
-				2BC4888929D6C60E00439D7F /* DetailView.swift in Sources */,
 				2BC4888329D6A27F00439D7F /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
