@@ -14,33 +14,37 @@ var tasks = [["Mon", "Finish assignment", "checkmark"],
 
 struct ContentView: View {
     @Binding var model: DataModel
+    @State var myTitle = "My List"
     var body: some View {
         NavigationView() {
-            List {
-                ForEach(model.tasks, id:\.self) {
-                    p in
-                    HStack{
-                        Text(p.day)
-                            .frame(width:50)
-                        Divider()
-                        Text(p.task)
+            VStack {
+                EditView(title: $myTitle)
+                List {
+                    ForEach(model.tasks, id:\.self) {
+                        p in
+                        HStack{
+                            Text(p.day)
+                                .frame(width:50)
+                            Divider()
+                            Text(p.task)
+                        }
+                    }.onDelete { idx in
+                        model.tasks.remove(atOffsets: idx)
+                        model.save()
+                    }.onMove { idx, i in
+                        model.tasks.move(fromOffsets: idx, toOffset: i)
+                        model.save()
                     }
-                }.onDelete { idx in
-                    model.tasks.remove(atOffsets: idx)
-                    model.save()
-                }.onMove { idx, i in
-                    model.tasks.move(fromOffsets: idx, toOffset: i)
-                    model.save()
-                }
-//                ForEach(tasks, id:\.self) {
-//                    task in
-//                    ListRowView(item: task)
-//                }
-            }.navigationTitle("To Do List")
-                .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                    model.tasks.append(Item(day:"Fri", task: "New Task"))
-                    model.save()
-                })
+                    //                ForEach(tasks, id:\.self) {
+                    //                    task in
+                    //                    ListRowView(item: task)
+                    //                }
+                }.navigationTitle(myTitle)
+                    .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+                        model.tasks.append(Item(day:"Fri", task: "New Task"))
+                        model.save()
+                    })
+            }
         }
         .padding()
     }
