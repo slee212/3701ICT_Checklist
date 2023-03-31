@@ -21,13 +21,16 @@ struct ContentView: View {
                     p in
                     HStack{
                         Text(p.day)
+                            .frame(width:50)
                         Divider()
                         Text(p.task)
                     }
                 }.onDelete { idx in
                     model.tasks.remove(atOffsets: idx)
+                    model.save()
                 }.onMove { idx, i in
                     model.tasks.move(fromOffsets: idx, toOffset: i)
+                    model.save()
                 }
 //                ForEach(tasks, id:\.self) {
 //                    task in
@@ -36,6 +39,7 @@ struct ContentView: View {
             }.navigationTitle("To Do List")
                 .navigationBarItems(leading: EditButton(), trailing: Button("+"){
                     model.tasks.append(Item(day:"Fri", task: "New Task"))
+                    model.save()
                 })
         }
         .padding()

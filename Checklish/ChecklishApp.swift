@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct ChecklishApp: App {
-    @State var model:DataModel = DataModel(tasks: testTasks)
+    @State var model:DataModel = DataModel()
     var body: some Scene {
         WindowGroup {
             ContentView(model: $model)
