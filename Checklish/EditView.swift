@@ -9,21 +9,21 @@ import SwiftUI
 
 struct EditView: View {
     @Binding var title: String
-    @State var displayItem: String = ""
+    @State var displayTitle: String = ""
     @Environment(\.editMode) var editMode
     var body: some View {
         VStack {
             if(editMode?.wrappedValue == .active) {
                 HStack {
                     Image(systemName: "square.and.pencil")
-                    TextField("Input:",text: $displayItem)
+                    TextField("Input:",text: $displayTitle)
                     Button("Cancel") {
-                        displayItem = title
+                        displayTitle = title
                     }
                 }.onAppear {
-                    displayItem = title
+                    displayTitle = title
                 }.onDisappear{
-                    title = displayItem
+                    title = displayTitle
                 }
             }
         }
