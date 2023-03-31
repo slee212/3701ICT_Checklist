@@ -24,7 +24,11 @@ struct ContentView: View {
                         Divider()
                         Text(p.task)
                     }
-                }.onDelete { idx in }
+                }.onDelete { idx in
+                    model.tasks.remove(atOffsets: idx)
+                }.onMove { idx, i in
+                    model.tasks.move(fromOffsets: idx, toOffset: i)
+                }
 //                ForEach(tasks, id:\.self) {
 //                    task in
 //                    ListRowView(item: task)
