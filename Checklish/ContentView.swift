@@ -18,11 +18,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView() {
             VStack {
-                EditView(title: $myTitle)
+                EditView(item: $myTitle)
                 List {
-                    ForEach(model.lists, id:\.self) {
-                        p in
-                        HStack {
+                    ForEach($model.lists, id:\.self) {
+                        $p in
+                        
+                        NavigationLink(destination: ListView(clist: $p)) {
                             Text(p.name)
                         }
 //                    ForEach(model.tasks, id:\.self) {
