@@ -14,7 +14,7 @@ var tasks = [["Mon", "Finish assignment", "checkmark"],
 
 struct ContentView: View {
     @Binding var model: DataModel
-    @State var myTitle = "My List"
+    @State var myTitle = "My Lists"
     var body: some View {
         NavigationView() {
             VStack {
@@ -46,7 +46,7 @@ struct ContentView: View {
                     //                    ListRowView(item: task)
                     //                }
                 }.navigationTitle(myTitle)
-                    .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+                    .navigationBarItems( trailing: Button("+"){
                         model.lists.append(Checklist(name: "New List"))
                         model.save()
                     })
