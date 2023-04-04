@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Item: Hashable, Codable {
-    var day: String
-    var task: String
+struct Checklist: Hashable, Codable {
+    var name: String
+    var test = [String]()
 }
 
 func getFile() -> URL? {
@@ -23,9 +23,9 @@ func getFile() -> URL? {
 }
 
 struct DataModel: Codable {
-    var tasks:[Item]
+    var lists:[Checklist]
     init () {
-        tasks = []
+        lists = []
         load()
     }
     
@@ -33,10 +33,10 @@ struct DataModel: Codable {
         guard let url = getFile(),
               let data = try? Data(contentsOf: url),
               let datamodel = try? JSONDecoder().decode(DataModel.self, from: data) else {
-            self.tasks = testTasks
+            self.lists = testLists
             return
         }
-        self.tasks = datamodel.tasks
+        self.lists = datamodel.lists
     }
     func save() {
         guard let url = getFile(),
@@ -48,7 +48,7 @@ struct DataModel: Codable {
     }
 }
 
-var testTasks = [
-    Item(day: "Mon", task: "Do laundry"),
-    Item(day: "Wed", task: "Go shopping")
+var testLists = [
+    Checklist(name: "Groceries"),
+    Checklist(name: "To Do List")
 ]

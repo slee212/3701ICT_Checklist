@@ -20,19 +20,24 @@ struct ContentView: View {
             VStack {
                 EditView(title: $myTitle)
                 List {
-                    ForEach(model.tasks, id:\.self) {
+                    ForEach(model.lists, id:\.self) {
                         p in
-                        HStack{
-                            Text(p.day)
-                                .frame(width:50)
-                            Divider()
-                            Text(p.task)
+                        HStack {
+                            Text(p.name)
                         }
+//                    ForEach(model.tasks, id:\.self) {
+//                        p in
+//                        HStack{
+//                            Text(p.day)
+//                                .frame(width:50)
+//                            Divider()
+//                            Text(p.task)
+//                        }
                     }.onDelete { idx in
-                        model.tasks.remove(atOffsets: idx)
+                        model.lists.remove(atOffsets: idx)
                         model.save()
                     }.onMove { idx, i in
-                        model.tasks.move(fromOffsets: idx, toOffset: i)
+                        model.lists.move(fromOffsets: idx, toOffset: i)
                         model.save()
                     }
                     //                ForEach(tasks, id:\.self) {
@@ -41,7 +46,7 @@ struct ContentView: View {
                     //                }
                 }.navigationTitle(myTitle)
                     .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                        model.tasks.append(Item(day:"Fri", task: "New Task"))
+                        model.lists.append(Checklist(name: "New List"))
                         model.save()
                     })
             }
