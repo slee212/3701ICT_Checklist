@@ -7,78 +7,39 @@
 
 import SwiftUI
 
-var tasks = [["Mon", "Finish assignment", "checkmark"],
-             ["Tue", "Go shopping", "checkmark"],
-             ["Wed", "Wash, fold and put away laundry", "xmark"],
-             ["Wed", "Study for upcoming exam", "xmark"]]
-
 struct ContentView: View {
-    @Binding var model: DataModel
-    @State var myTitle = "My Lists"
-    var test = 0
+    @Binding var model: DataModel // A binding property that represents a data model
+    @State var myTitle = "My Lists" // A state property that holds the title of the view
+    
     var body: some View {
         NavigationView() {
             VStack {
-                EditView(item: $myTitle)
+                EditView(item: $myTitle) // A custom view called EditView
                 List {
                     ForEach(model.lists.enumerated().map { $0 }, id: \.element) { (index, p) in
+                        // A list of items with a navigation link to a ListView for each item
                         NavigationLink(destination: ListView(clist: $model, count: index)) {
-                            Text(p.name)
+                            Text(p.name) // Display the name property of each item in the list
                         }
-
-//                    ForEach(model.tasks, id:\.self) {
-//                        p in
-//                        HStack{
-//                            Text(p.day)
-//                                .frame(width:50)
-//                            Divider()
-//                            Text(p.task)
-//                        }
-                    }.onDelete { idx in
+                    }
+                    .onDelete { idx in
+                        // Handle deletion of items in the list
                         model.lists.remove(atOffsets: idx)
-                        model.save()
-                    }.onMove { idx, i in
+                        model.save() // Save the updated data model
+                    }
+                    .onMove { idx, i in
+                        // Handle moving of items in the list
                         model.lists.move(fromOffsets: idx, toOffset: i)
                         model.save()
                     }
-                    //                ForEach(tasks, id:\.self) {
-                    //                    task in
-                    //                    ListRowView(item: task)
-                    //                }
-                }.navigationTitle(myTitle)
-                    .navigationBarItems( trailing: Button("+"){
-                        model.lists.append(Checklist(name: "New List", tasks: [["New Task", "xmark"]]))
-                        model.save()
-                    })
+                }.navigationTitle(myTitle) // Set the navigation title to the value of myTitle
+                .navigationBarItems(trailing: Button("+"){
+                    // Add a button to add a new placeholder item to the list
+                    model.lists.append(Checklist(name: "New List", tasks: [["New Task", "xmark"]]))
+                    model.save()
+                })
             }
         }
         .padding()
-    }
-}
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
-
-struct ListRowView: View {
-    var item:[String]
-    var body: some View {
-        HStack{
-            Text(item[0])
-                .frame(width:50)
-            Divider()
-                .overlay(.black)
-            Text(item[1])
-            Spacer()
-            Image(systemName: item[2])
-        }.onTapGesture {
-            if(item[2] == "checkmark") {
-                print("\(item[1]) is completed")
-            } else {
-                print("\(item[1]) is not completed")
-            }
-        }
     }
 }
