@@ -15,17 +15,17 @@ var tasks = [["Mon", "Finish assignment", "checkmark"],
 struct ContentView: View {
     @Binding var model: DataModel
     @State var myTitle = "My Lists"
+    var test = 0
     var body: some View {
         NavigationView() {
             VStack {
                 EditView(item: $myTitle)
                 List {
-                    ForEach($model.lists, id:\.self) {
-                        $p in
-                        
-                        NavigationLink(destination: ListView(clist.lists: $p)) {
+                    ForEach(model.lists.enumerated().map { $0 }, id: \.element) { (index, p) in
+                        NavigationLink(destination: ListView(clist: $model, count: index)) {
                             Text(p.name)
                         }
+
 //                    ForEach(model.tasks, id:\.self) {
 //                        p in
 //                        HStack{
@@ -47,8 +47,8 @@ struct ContentView: View {
                     //                }
                 }.navigationTitle(myTitle)
                     .navigationBarItems( trailing: Button("+"){
-//                        model.lists.append(Checklist(name: "New List"))
-//                        model.save()
+                        model.lists.append(Checklist(name: "New List", tasks: [["New Task", "xmark"]]))
+                        model.save()
                     })
             }
         }

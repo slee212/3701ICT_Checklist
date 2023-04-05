@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ListView: View {
-    @Binding var clist: Checklist
+    @Binding var clist: DataModel
+    var count: Int
     @State var listName: String = ""
     @State var newItem: String = ""
     @State var listItems: [[String]] = []
@@ -60,8 +61,9 @@ struct ListView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            clist.tasks = tempList
+                            clist.lists[count].tasks = tempList
                             listItems = tempList
+                            clist.save()
                         }) {
                             Text("Save")
                         }
@@ -69,13 +71,13 @@ struct ListView: View {
                     }
             )
             .onAppear {
-                listName = clist.name
-                listItems = clist.tasks
-                tempList = clist.tasks
+                listName = clist.lists[count].name
+                listItems = clist.lists[count].tasks
+                tempList = clist.lists[count].tasks
             }
             .onDisappear {
-                clist.name = listName
-                clist.tasks = listItems
+                clist.lists[count].name = listName
+                clist.lists[count].tasks = listItems
             }
             .padding()
     }
