@@ -27,11 +27,6 @@ struct ContentView: View {
                         model.lists.remove(atOffsets: idx)
                         model.save() // Save the updated data model
                     }
-                    .onMove { idx, i in
-                        // Handle moving of items in the list
-                        model.lists.move(fromOffsets: idx, toOffset: i)
-                        model.save()
-                    }
                 }.navigationTitle(myTitle) // Set the navigation title to the value of myTitle
                 .navigationBarItems(trailing: Button("+"){
                     // Add a button to add a new placeholder item to the list
