@@ -9,7 +9,7 @@ import Foundation
 
 struct Checklist: Hashable, Codable {
     var name: String
-    var test = [String]()
+    var tasks: [[String]]
 }
 
 func getFile() -> URL? {
@@ -49,6 +49,6 @@ struct DataModel: Codable {
 }
 
 var testLists = [
-    Checklist(name: "Groceries"),
-    Checklist(name: "To Do List")
+    Checklist(name: "Groceries", tasks: [["Milk", "checkmark"], ["Eggs", "xmark"], ["Bacon", "xmark"], ["Coffee", "checkmark"]]),
+    Checklist(name: "To Do List", tasks: [["Finish assignment", "xmark"], ["Go Shopping", "xmark"], ["Walk dog", "checkmark"], ["Work out", "checkmark"]])
 ]

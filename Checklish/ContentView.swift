@@ -23,7 +23,7 @@ struct ContentView: View {
                     ForEach($model.lists, id:\.self) {
                         $p in
                         
-                        NavigationLink(destination: ListView(clist: $p)) {
+                        NavigationLink(destination: ListView(clist.lists: $p)) {
                             Text(p.name)
                         }
 //                    ForEach(model.tasks, id:\.self) {
@@ -47,8 +47,8 @@ struct ContentView: View {
                     //                }
                 }.navigationTitle(myTitle)
                     .navigationBarItems( trailing: Button("+"){
-                        model.lists.append(Checklist(name: "New List"))
-                        model.save()
+//                        model.lists.append(Checklist(name: "New List"))
+//                        model.save()
                     })
             }
         }
