@@ -14,6 +14,7 @@ struct ListView: View {
     @State var newItem: String = ""
     @State var listItems: [[String]] = []
     @State var tempList: [[String]] = []
+    @State var isTicked: Bool = false
     
     var body: some View {
         VStack {
@@ -68,9 +69,16 @@ struct ListView: View {
             leading:
                 // Button for resetting the list to its original state
                 Button(action: {
-                    tempList = listItems
+                    if isTicked {
+                        tempList = listItems
+                        isTicked.toggle()
+                    } else {
+                        listItems = tempList
+                        tempList = tempList.map{ [$0[0], "xmark"] }
+                        isTicked.toggle()
+                    }
                 }) {
-                    Text("Reset")
+                    Text(isTicked ? "Reset" : "Undo")
                 },
             trailing:
                 HStack {
