@@ -14,7 +14,7 @@ struct ListView: View {
     @State var newItem: String = ""
     @State var listItems: [[String]] = []
     @State var tempList: [[String]] = []
-    @State var isTicked: Bool = false
+    @State var isTicked: Bool = false // State variable for checking if items are checked or not
     
     var body: some View {
         VStack {
@@ -70,11 +70,11 @@ struct ListView: View {
                 // Button for resetting the list to its original state
                 Button(action: {
                     if isTicked {
-                        tempList = listItems
+                        tempList = listItems // Reset the temporary list to the original list items
                         isTicked.toggle()
                     } else {
-                        listItems = tempList
-                        tempList = tempList.map{ [$0[0], "xmark"] }
+                        listItems = tempList // Update the original list items with the changes made in the temporary list
+                        tempList = tempList.map{ [$0[0], "xmark"] } // Reset the temporary list to default status "xmark"
                         isTicked.toggle()
                     }
                 }) {
