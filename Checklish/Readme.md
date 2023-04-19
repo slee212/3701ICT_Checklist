@@ -19,3 +19,17 @@ I learned:
 - How to use binding
 - How to make a For Each loop with an index to be used later
 - How to pass data between views
+
+Things I struggled with:
+- Make pages for each individual list with their list items. I made this work by using navigation links that took me to the ListView.
+
+## Milestone 3
+
+I learned:
+- How to properly make a reset and undo button for my list
+- How to create a boolean to use as a state
+- Change the application icon
+- How to re-order the list through .onMove
+
+Things I struggled with:
+- I could turn all ticked items to unticked, but couldn't retick using an undo button. I fixed this by using a temporary list to store the list before unticking all items.

@@ -56,10 +56,8 @@ struct ListView: View {
                         // Toggle the status of the item when tapped
                         if(item[1] == "checkmark") {
                             item[1] = "xmark"
-                            print("\(item[0]) is checked")
                         } else {
                             item[1] = "checkmark"
-                            print("\(item[0]) is not checked")
                         }
                     }
                 }
