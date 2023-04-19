@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+/// The ListView struct is a view that displays a list of items that can be checked and unchecked. Specifically, the list of items is an in-depth look at the list selected on the main ContentView. Similar to the ContentView, the ListView utilises a Navigation bar to house buttons for functionality, those being the Reset / Undo button which alternate upon being pressed, a save button and an edit button. Upon pressing the edit button, the ListView uses an EditView to allow the deletion and moving of list items. Ultimately, the ListView is a detailed view of a checklist.
 struct ListView: View {
+    /// A binding to the DataModel containing the stored data for the application.
     @Binding var clist: DataModel
+    /// A simple integer representing an index of the current list being displayed.
     var count: Int
+    /// A string representing the name of the current list.
     @State var listName: String = ""
+    /// A string representing the name of a new item being added to the list.
     @State var newItem: String = ""
+    /// An array of strings representing the items in the list with the first object in the list being the name and second being the status ("checkmark" or "xmark").
     @State var listItems: [[String]] = []
+    /// A temporary copy of the 'listItems' array used for making changes that are yet to be saved.
     @State var tempList: [[String]] = []
-    @State var isTicked: Bool = false // State variable for checking if items are checked or not
+    /// State variable for checking if items are checked or not
+    @State var isTicked: Bool = false
     
+    /// The body of the page, where the actual content is housed.
     var body: some View {
         VStack {
             // EditView for setting the list name
