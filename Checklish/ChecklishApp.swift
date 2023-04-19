@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+/// The ChecklishApp struct creates an instancee of the DataModel class to provide storage for the application. Furthermore, it provides a way to initialise and manager the user interface of the application.
 struct ChecklishApp: App {
     @State var model:DataModel = DataModel()
     var body: some Scene {
